@@ -81,7 +81,7 @@ app.get("/articles", function(req, res) {
   .sort({'date': -1})
   .limit(10)
     .then(function(dbArticle) {
-      console.log(dbArticle);
+      //console.log(dbArticle);
       // If we were able to successfully find Articles, send them back to the client
       res.render("articles", { articles : dbArticle });
     })
@@ -107,10 +107,31 @@ app.get("/articles/:id", function(req, res) {
     });
 });
 
+// Route for grabbing a specific Article by id, populate it with it's note
+app.get("/article/:id", function(req, res) {
+  // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
+  db.Article.findOne({ _id: req.params.id })
+    //.populate("comment")
+    // ..and populate all of the notes associated with it
+    .then(function(dbArticle) {
+      // If we were able to successfully find an Article with the given id, send it back to the client
+      //console.log(dbArticle);
+      db.Comment.findOne({_id: dbArticle.comment._id})
+      .then((dbComment)=>{
+        //console.log(dbComment.title);
+        res.json(dbComment);
+      })
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
 // Route for saving/updating an Article's associated Comment
 app.post("/articles/:id", function(req, res) {
   // Create a new comment and pass the req.body to the entry
-  console.log(req.body);
+  // console.log(req.body);
   db.Comment.create(req.body)
     .then(function(dbComment) {
       // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
