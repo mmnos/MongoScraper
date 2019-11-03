@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   window.deleteArticle = function(articleId) {
     $.post('/api/delete/' + articleId)
-    .then(()=>{
+    .then(() => {
       $(`[data-id=${articleId}]`).remove();
     });
   };
@@ -34,5 +34,5 @@ $(document).ready(function() {
     });
 
   };
-  
+
 });

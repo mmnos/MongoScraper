@@ -36,13 +36,17 @@
   </div>
 </nav> --}}
 
-<div>
+<div class="container center">
+
+  <h1 id="header">ESPN News</h1>
+  
+  <button id="scrape" class="btn">Scrape</button>
 
   {{#each articles}}
 
   <div class="row" data-id={{this._id}}>
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
+    <div class="col s8 offset-s2">
+      <div id="custCard" class="card">
         <div class="card-content white-text">
           <span class="card-title">{{this.title}}</span>
           <ul data-id="{{this._id}}" class="comment-list">

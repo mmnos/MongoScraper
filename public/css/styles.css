@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Amiri|Cinzel|Cormorant+Garamond|Patua+One|Raleway&display=swap');
+
+body {
+
+  background: url("/images/nick-jio-bYvo2ol_img-unsplash.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1#header {
+
+  font-family: 'Patua One', cursive;
+  letter-spacing: 5px;
+  margin-top: 10%;
+
+}
+
+button#scrape {
+
+  background-color: rgba(1, 12, 12, 0.9);
+  margin-bottom: 40px;
+
+}
+
+div#custCard {
+
+  background-color: rgba(1, 12, 12, 0.9);
+
+}
