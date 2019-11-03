@@ -2,33 +2,37 @@ $(document).ready(function() {
     
   $('.modal').modal();
 
-  $(`.comment-list[data-id]`).each(function(){
+  $('.comment-list[data-id]').each(function(){
 
     let commentList = $(this);
     let articleId = commentList.data('id');
-    $.get(`/article/${articleId}`)
-    .then((data)=>{
-        if (data.title){
+    $.get(`/api/articles/${articleId}`)
+    .then((data) => {
+        data.comment.forEach((comment) => {
           let listComment = $('<li/>');
-          listComment.html(data.title);
+          listComment.html(comment.title);
           commentList.append(listComment);
-        }
-    })
+        });
+    });
   });
 
-  window.deleteArticle = function(articleId){
-    $.post('/delete/' + articleId)
+  window.deleteArticle = function(articleId) {
+    $.post('/api/delete/' + articleId)
     .then(()=>{
       $(`[data-id=${articleId}]`).remove();
-    })
-  }
-
-  window.saveComment = function(articleId){
-
-    let newComment = $('#addcomment').val();
-
-    $.post(`/articles/${articleId}`, {
-      title: newComment
     });
-  }
+  };
+
+  window.saveComment = function(articleId) {
+
+    let newComment = $(`#addcomment-${articleId}`).val();
+
+    $.post(`/api/articles/${articleId}`, {
+      title: newComment
+    }).then(() => {
+      window.location.reload();
+    });
+
+  };
+  
 });

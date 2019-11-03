@@ -10,7 +10,7 @@
         <div class="card-action">
           <a href="https://espn.com/{{this.link}}" target="_blank" class="btn">View</a>
           <button onclick="deleteArticle('{{this._id}}')" class="btn">Delete</button>
-          <a href="#comment" class="btn modal-trigger">Add Comment</a>
+          <a href="#{{this._id}}" class="btn modal-trigger">Add Comment</a>
         </div>
       </div>
     </div>
@@ -18,12 +18,9 @@
 
 
   <!-- Modal Structure -->
-  <div id="comment" class="modal">
+  <div id="{{this._id}}" class="modal">
     <div class="modal-content">
       <h4>Add Comment</h4>
-      {{#each this.comment}}
-      <div>{{this.title}}</div>
-      {{/each}}
       <input type="text" id="addcomment"/>
     </div>
     <div class="modal-footer">
