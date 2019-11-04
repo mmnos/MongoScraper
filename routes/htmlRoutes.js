@@ -9,7 +9,7 @@ router.get("", function(req, res) {
   db.Article.find({})
   .populate("comment")
   .sort({'date': -1})
-  .limit(10)
+  .limit(5)
     .then(function(dbArticle) {
 
       res.render("index", { articles : dbArticle });

@@ -26,12 +26,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 app.use("/", htmlRoutes);
 app.use("/api", apiRoutes);
 
-// app.get("/", function(req, res) {
-
-//   res.render("index", {});
-
-// });
-
 app.listen(PORT, function() {
 
   console.log(`App running on port ${PORT}!`);
