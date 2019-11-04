@@ -28,3 +28,35 @@ div#custCard {
   background-color: rgba(1, 12, 12, 0.9);
 
 }
+
+div.modal-content {
+
+  background-color: rgba(1, 12, 12, 0.9);
+
+}
+
+div#modalFooterColor {
+
+  background-color: rgba(1, 12, 12, 0.9);
+  color: #ffffff;
+
+}
+
+input.inputColor {
+
+  background-color: rgba(1, 12, 12, 0.9);
+  color: #ffffff;
+
+}
+
+#close, #save {
+
+  color: #ffffff;
+
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+
+  color: #ffffff;
+
+}

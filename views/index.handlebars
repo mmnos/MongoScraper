@@ -56,9 +56,9 @@
           </ul>
         </div>
         <div class="card-action">
-          <a href="https://espn.com/{{this.link}}" target="_blank" class="btn">View</a>
-          <button onclick="deleteArticle('{{this._id}}')" class="btn">Delete</button>
-          <a href="#{{this._id}}" class="btn modal-trigger">Add Comment</a>
+          <a href="https://espn.com/{{this.link}}" target="_blank">View</a>
+          <a onclick="deleteArticle('{{this._id}}')">Delete</a>
+          <a href="#{{this._id}}" class="modal-trigger">Add Comment</a>
         </div>
       </div>
     </div>
@@ -68,11 +68,11 @@
   <div id="{{this._id}}" class="modal">
     <div class="modal-content">
       <h4>Add Comment</h4>
-      <input type="text" id="addcomment-{{this._id}}"/>
+      <input type="text" class="inputColor" id="addcomment-{{this._id}}"/>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-      <button onclick="saveComment('{{this._id}}')" class="modal-close waves-effect waves-green btn-flat">Save</button>
+    <div id="modalFooterColor" class="modal-footer">
+      <a href="#!" id="close" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      <button onclick="saveComment('{{this._id}}')" id="save" class="modal-close waves-effect waves-green btn-flat">Save</button>
     </div>
   </div>  
 

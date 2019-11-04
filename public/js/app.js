@@ -35,4 +35,9 @@ $(document).ready(function() {
 
   };
 
+  $('button#scrape').on("click", () => {
+    $.get("api/scrape");
+    window.location.reload();
+  });
+
 });
